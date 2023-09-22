@@ -1,0 +1,7 @@
+[Modelo V] .- El Modelo V es un enfoque que enfatiza la verificación y validación en el desarrollo de software. La parte superior de la "V" representa las actividades de diseño y especificación, mientras que la parte inferior representa las actividades de prueba y verificación. Este modelo garantiza que los requisitos se cumplan adecuadamente a lo largo del ciclo de vida del proyecto.
+
+[System Integration Testing] .- Una fase en el Modelo V donde se prueba la integración de diferentes componentes del sistema para asegurarse de que funcionen juntos correctamente.
+
+[User Acceptance Testing] .- La fase final del Modelo V en la que el cliente realiza pruebas para determinar si el sistema cumple con sus requisitos y expectativas.
+
+[Validation] .- La etapa en la parte superior de la "V" donde se verifica que el sistema cumple con los requisitos del usuario antes de avanzar a las pruebas de integración.

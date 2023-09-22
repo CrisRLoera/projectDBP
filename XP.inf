@@ -1,0 +1,6 @@
+[XP] .- Extreme Programming (X.P.) es una metodología ágil que se centra en las prácticas de desarrollo de software de alta calidad. X.P. aboga por la programación en parejas, la integración continua, las pruebas automatizadas y la simplicidad en el diseño. Su objetivo es entregar software de alta calidad de manera eficiente.
+
+[Pair Programming] .- La práctica de tener dos programadores trabajando juntos en el mismo código en tiempo real. Uno es el "conductor" que escribe código, mientras que el otro es el "observador" que revisa y da retroalimentación.
+Refactoring: La actividad de mejorar el diseño y la calidad del código existente sin cambiar su funcionalidad externa.
+
+
