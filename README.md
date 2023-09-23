@@ -35,4 +35,4 @@ sudo apt-get install docker-ce
 
 * **Cristian Yael Rubi Loera**
 * **Emiliano Rivera Armendariz** 
-* **Josue David Raiz Almeida**
+* **Josue David Ruiz Almeida**
