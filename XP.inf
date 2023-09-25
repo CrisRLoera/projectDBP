@@ -3,4 +3,3 @@
 [Pair Programming] .- La práctica de tener dos programadores trabajando juntos en el mismo código en tiempo real. Uno es el "conductor" que escribe código, mientras que el otro es el "observador" que revisa y da retroalimentación.
 Refactoring: La actividad de mejorar el diseño y la calidad del código existente sin cambiar su funcionalidad externa.
 
-
