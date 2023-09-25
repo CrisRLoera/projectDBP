@@ -26,7 +26,7 @@ main(){
                     ;;
                 2 )
                 echo "Usted esta en la seccion X.P, seleccione la opcion que desea utilizar"
-                opcSelected="X.P"
+                opcSelected="XP"
                 menuOpciones "$opcSelected"
                     ;;
                 3 )
@@ -103,8 +103,8 @@ menuOpciones(){
             ;;
         2 )
         #ToDo: Completar el case.
-        echo "-----------------"
-        #buscar "$opcSelected"
+        echo "Ha Seleccionado La Opcion Agregar Informacion"
+        buscar "$opcSelected"
             ;;
         3 )
         echo "------------------"
@@ -133,7 +133,7 @@ agregarInfo(){
         echo "Se Agrego Informacion Correctamente"
     fi
 
-    if [ $opcSelected = "X.P" ]; then
+    if [ $opcSelected = "XP" ]; then
         #Lee contendio del archivo
         archive=$(cat XP.inf)
         #Solicita el concepto
@@ -207,11 +207,15 @@ agregarInfo(){
 }
 
 
-: '
-buscar(){
 
+buscar(){
+    read -p "Escribe el concepto a buscar: " concept
+    grep [$concept] "$opcSelected.inf"
+    echo ""
 }
 
+
+: '
 eliminarInfo(){
     
     #newinfo=$(echo "$archive" | sed "s/\[$concept\].*/[$concept] .- $info/") [=======  NO ELIMINAR, posible uso para un fututo. ===========]
