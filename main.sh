@@ -5,47 +5,54 @@ main(){
     opc=0
     opc2=0
     opcSelected=''
+    stillRunning=0
 
     #Logica de ejecucion del menu
     while [[ $running = true ]]; do
-        read -p "Ingresa -a para entrar al menu de metodología ágil o -t para entrar a la metodología tradicional: " inputMain        
+        if [ $stillRunning = 0 ]; then
+            read -p "Ingresa -a para entrar al menu de metodología ágil o -t para entrar a la metodología tradicional: " inputMain        
+            
+        else
+            read -p "Ingrese -e para terminar con la ejecucion ó -t (Tradicional), -a (Ágil) para continuar la ejecucion:" inputMain
+        fi
         if [ $inputMain = "-a" ]; then
-            echo "--------------------------------------------------------------------------"
-            echo "Bienvenido a la guia rapida de Agile, para continuar seleccione un tema: "
-            echo "1. SCRUM"
-            echo "2. X.P."
-            echo "3. Kanban"
-            echo "4. Crystal"
-            read -p "Opcion: " opc
-            echo "--------------------------------------------------------------------------"
-            case $opc in
-                1 )
-                echo "Usted esta en la seccion SCRUM, seleccione la opcion que desea utilizar:"
-                opcSelected="SCRUM"
-                menuOpciones "$opcSelected"
-                    ;;
-                2 )
-                echo "Usted esta en la seccion X.P, seleccione la opcion que desea utilizar"
-                opcSelected="XP"
-                menuOpciones "$opcSelected"
-                    ;;
-                3 )
-                echo "Usted esta en la seccion Kanban, seleccione la opcion que desea utilizar"
-                opcSelected="Kanban"
-                menuOpciones "$opcSelected"
-                    ;;
-                4 )
-                echo "Usted esta en la seccion Crystal, seleccione la opcion que desea utilizar"
-                opcSelected="Crystal"
-                menuOpciones "$opcSelected"
-                    ;;
-                * )
-                #Este clear no supe si dejarlo o no, ustedes deciden.
-                clear
-                echo "Opcion No valida, Digite Nuevamente."
-                    ;;
-            esac
-
+                stillRunning=1
+                echo "--------------------------------------------------------------------------"
+                echo "Bienvenido a la guia rapida de Agile, para continuar seleccione un tema: "
+                echo "1. SCRUM"
+                echo "2. X.P."
+                echo "3. Kanban"
+                echo "4. Crystal"
+                read -p "Opcion: " opc
+                echo "--------------------------------------------------------------------------"
+                case $opc in
+                    1 )
+                    echo "Usted esta en la seccion SCRUM, seleccione la opcion que desea utilizar:"
+                    opcSelected="SCRUM"
+                    menuOpciones "$opcSelected"
+                        ;;
+                    2 )
+                    echo "Usted esta en la seccion X.P, seleccione la opcion que desea utilizar"
+                    opcSelected="XP"
+                    menuOpciones "$opcSelected"
+                        ;;
+                    3 )
+                    echo "Usted esta en la seccion Kanban, seleccione la opcion que desea utilizar"
+                    opcSelected="Kanban"
+                    menuOpciones "$opcSelected"
+                        ;;
+                    4 )
+                    echo "Usted esta en la seccion Crystal, seleccione la opcion que desea utilizar"
+                    opcSelected="Crystal"
+                    menuOpciones "$opcSelected"
+                        ;;
+                    * )
+                    #Este clear no supe si dejarlo o no, ustedes deciden.
+                    clear
+                    echo "Opcion No valida, Digite Nuevamente."
+                        ;;
+                esac
+        
         elif [ $inputMain = "-t" ]; then
             echo "Bienvenido a la guia rapida de metodologias tradicionales, para continuar seleccione un tema: "
             echo "1. Cascada"
@@ -74,9 +81,10 @@ main(){
                 echo "Opcion No valida, Digite Nuevamente."
                     ;;  
             esac
-
+        elif [ $inputMain = "-e" ]; then
+            running=false 
         else
-            running=false
+            running=true
         fi
     done
 }
@@ -102,8 +110,7 @@ menuOpciones(){
         agregarInfo "$opcSelected"
             ;;
         2 )
-        #ToDo: Completar el case.
-        echo "Ha Seleccionado La Opcion Agregar Informacion"
+        echo "Ha Seleccionado La Opcion Buscar"
         buscar "$opcSelected"
             ;;
         3 )
@@ -210,7 +217,13 @@ agregarInfo(){
 
 buscar(){
     read -p "Escribe el concepto a buscar: " concept
-    grep [$concept] "$opcSelected.inf"
+    numOfCoins=$(grep -c $concept "$opcSelected.inf")
+    if [[ $numOfCoins != 0 ]]; then
+        grep "$concept" "$opcSelected.inf"
+    else
+        echo "No se encontraron concidencias"
+    fi
+    
     echo ""
 }
 
@@ -221,12 +234,12 @@ eliminarInfo(){
     #newinfo=$(echo "$archive" | sed "s/\[$concept\].*/[$concept] .- $info/") [=======  NO ELIMINAR, posible uso para un fututo. ===========]
 
 }
+'
 
 leerBaseInfo(){
-
+    cat "$opcSelected.inf"
 }
 
-'
 
 #Disparador de la función principal de ejecucion del programa
 main
