@@ -92,7 +92,6 @@ main(){
 
 menuOpciones(){
     #Varibles de Entorno
-    opcSelected="$1"
     opc=0
 
     #Menu de opciones
@@ -127,94 +126,16 @@ menuOpciones(){
 
 agregarInfo(){
     #Variables de entorno
-    opcSelected="$1"
     concept=''
     info=''
 
-    #IFs para cada opcion
-    if [ $opcSelected = "SCRUM" ]; then
-        #Lee contendio del archivo
-        archive=$(cat SCRUM.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Nuevo Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> SCRUM.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "XP" ]; then
-        #Lee contendio del archivo
-        archive=$(cat XP.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> XP.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "Kanban" ]; then
-        #Lee contendio del archivo
-        archive=$(cat Kanban.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> Kanban.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "Crystal" ]; then
-        #Lee contendio del archivo
-        archive=$(cat Crystal.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> Crystal.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "Cascada" ]; then
-        #Lee contendio del archivo
-        archive=$(cat Cascada.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> Cascada.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "Espiral" ]; then
-        #Lee contendio del archivo
-        archive=$(cat Espiral.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> Espiral.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
-
-    if [ $opcSelected = "ModeloV" ]; then
-        #Lee contendio del archivo
-        archive=$(cat ModeloV.inf)
-        #Solicita el concepto
-        read -p "Digite El Nombre Del Concepto: " concept
-        #Solicita nueva informacion
-        read -p "Introduzca La Nueva Informacion: " info
-        #Agrega nueva informacion y actualizarlo
-        echo -e "[$concept] .- $info\n" >> ModeloV.inf
-        echo "Se Agrego Informacion Correctamente"
-    fi
+    #Solicita el concepto
+    read -p "Digite El Nombre Del Nuevo Concepto: " concept
+    #Solicita nueva informacion
+    read -p "Introduzca La Nueva Informacion: " info
+    #Agrega nueva informacion y actualizarlo
+    echo -e "[$concept] .- $info\n" >> $opcSelected.inf
+    echo "Se Agrego Informacion Correctamente"
 }
 
 
@@ -240,7 +161,7 @@ eliminarInfo(){
     read -p "Escribe el concepto a eliminar: " concept
 
     if [ -f "$opcSelected.inf" ] && grep -q "^\[$concept\]" "$opcSelected.inf"; then
-        sed -i "/^\[$concept\]/d" "$opcSelected.inf"
+        sed -i "/^\[$concept\]/N; /^\[$concept\]/d" "$opcSelected.inf"
         echo "Se ha eliminado la informacion para el concepto [$concept]"
     else
         echo "El concepto $concept no existe."
