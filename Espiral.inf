@@ -1,8 +1,8 @@
 [Espiral] .- El Modelo Espiral es un enfoque de desarrollo de software que combina elementos de la ingeniería de sistemas y la gestión de proyectos. Se caracteriza por ser iterativo y cíclico. En cada ciclo, se identifican riesgos y se toman decisiones antes de avanzar en el desarrollo. Esto permite una mayor flexibilidad y adaptabilidad a medida que se obtiene más información sobre el proyecto.
 
-[Risk Analysis] .- Una característica clave del Modelo Espiral donde se identifican y evalúan los riesgos del proyecto. Las decisiones se toman en función de la gestión de riesgos.
+[RiskAnalysis] .- Una característica clave del Modelo Espiral donde se identifican y evalúan los riesgos del proyecto. Las decisiones se toman en función de la gestión de riesgos.
 
 [Prototype] .- En algunas iteraciones del Modelo Espiral, se crea un prototipo del sistema para obtener retroalimentación temprana y refinar los requisitos.
 
-[Customer Evaluation] .- En cada ciclo del Modelo Espiral, se involucra al cliente para evaluar el progreso y tomar decisiones basadas en su retroalimentación.
+[CustomerEvaluation] .- En cada ciclo del Modelo Espiral, se involucra al cliente para evaluar el progreso y tomar decisiones basadas en su retroalimentación.
 

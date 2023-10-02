@@ -31,6 +31,12 @@ Para instalar Docker
 sudo apt-get install docker-ce
 ```
 
+Docker Hub con la imagen
+
+```
+https://hub.docker.com/repository/docker/emilianoriv/metodologias/general
+```
+
 ## Autores
 
 * **Cristian Yael Rubi Loera**

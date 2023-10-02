@@ -115,7 +115,11 @@ menuOpciones(){
             ;;
         3 )
         echo "------------------"
-        #eliminarInfo "opcSelected"
+        eliminarInfo "opcSelected"
+            ;;
+        4 )
+        echo "------------------"
+        leerBaseInfo "$opcSelected"
             ;;
     esac
 
@@ -217,9 +221,9 @@ agregarInfo(){
 
 buscar(){
     read -p "Escribe el concepto a buscar: " concept
-    numOfCoins=$(grep -c $concept "$opcSelected.inf")
-    if [[ $numOfCoins != 0 ]]; then
-        grep "$concept" "$opcSelected.inf"
+    result=$(awk -v concept="$concept" '$1 == "["concept"]" {print; exit}' "$opcSelected.inf")
+    if [[ -n "$result" ]]; then
+        echo "$result"
     else
         echo "No se encontraron concidencias"
     fi
@@ -228,13 +232,22 @@ buscar(){
 }
 
 
-: '
+
 eliminarInfo(){
     
-    #newinfo=$(echo "$archive" | sed "s/\[$concept\].*/[$concept] .- $info/") [=======  NO ELIMINAR, posible uso para un fututo. ===========]
+    concept=''
+
+    read -p "Escribe el concepto a eliminar: " concept
+
+    if [ -f "$opcSelected.inf" ] && grep -q "^\[$concept\]" "$opcSelected.inf"; then
+        sed -i "/^\[$concept\]/d" "$opcSelected.inf"
+        echo "Se ha eliminado la informacion para el concepto [$concept]"
+    else
+        echo "El concepto $concept no existe."
+    fi
 
 }
-'
+
 
 leerBaseInfo(){
     cat "$opcSelected.inf"

@@ -1,8 +1,8 @@
 [Cascada] .- El Modelo en Cascada es un enfoque tradicional de desarrollo de software en el que las fases del proyecto (como análisis, diseño, implementación, pruebas y mantenimiento) se realizan de manera secuencial. Cada fase debe completarse antes de pasar a la siguiente. Es un enfoque rígido y poco flexible que no se adapta bien a cambios en los requisitos.
 
-[Requirements Specification] .- La fase inicial del Modelo en Cascada donde se recopilan y documentan todos los requisitos del sistema antes de pasar a las siguientes fases.
+[RequirementsSpecification] .- La fase inicial del Modelo en Cascada donde se recopilan y documentan todos los requisitos del sistema antes de pasar a las siguientes fases.
 
-[System Design] .- La fase en la que se crea un diseño detallado del sistema, incluyendo arquitectura, base de datos y diseño de interfaz de usuario.
+[SystemDesign] .- La fase en la que se crea un diseño detallado del sistema, incluyendo arquitectura, base de datos y diseño de interfaz de usuario.
 
-[Verification and Validation] .- Las fases finales del Modelo en Cascada donde se llevan a cabo pruebas exhaustivas y se verifica que el sistema cumple con los requisitos especificados.
+[VerificationandValidation] .- Las fases finales del Modelo en Cascada donde se llevan a cabo pruebas exhaustivas y se verifica que el sistema cumple con los requisitos especificados.
 
