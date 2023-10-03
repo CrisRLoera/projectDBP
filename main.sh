@@ -113,11 +113,11 @@ menuOpciones(){
         buscar "$opcSelected"
             ;;
         3 )
-        echo "------------------"
+        echo "Ha Seleccionado La Opcion Eliminar"
         eliminarInfo "opcSelected"
             ;;
         4 )
-        echo "------------------"
+        echo "Ha Seleccionado La Opcion Leer Base de Datos"
         leerBaseInfo "$opcSelected"
             ;;
     esac
